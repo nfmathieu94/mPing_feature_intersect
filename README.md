@@ -1,10 +1,10 @@
 # Feature Intersect
 --------------------
 ## Purpose
-    The Feature Intersect part of this project is aimed to look at where mPing elements are
-    landing in terms of genomic features. By using the RelocaTE2 results that determine the 
-    genomic coordiantes of mPing, we can intersect this data frame with an annotation file
-    to determine the frequency of mPing insertions in specific genomic features. 
+  The Feature Intersect part of this project is aimed to look at where mPing elements are
+  landing in terms of genomic features. By using the RelocaTE2 results that determine the
+  genomic coordiantes of mPing, we can intersect this data frame with an annotation file
+  to determine the frequency of mPing insertions in specific genomic features.
 
 ## Details
 * RelocaTE2 was ran on Illumina fastq files for 8 different RILs by JS
