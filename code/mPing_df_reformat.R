@@ -51,6 +51,19 @@ add_RIL <- replaced_acc %>%
 
 # Subsetting add_RIL to obtain final data frame that will be used for annotation comparison
 
-cleaned_df <- add_RIL[,c("RIL", "Chr", "Start", "end")]
-write.csv(cleaned_df, "./cleaned_RIL1to8_mPing.csv", row.names=FALSE, quote=FALSE)
-write.table(cleaned_df, "./cleaned_RIL1to8_mPing.tsv", sep="\t", row.names=FALSE, quote=FALSE)
+new_df <- add_RIL[,c("RIL", "Chr", "Start", "end")]
+
+# Moving first column to last
+cleaned_df <- new_df %>%
+    select(-RIL,RIL)
+
+# Removing underscore from col1
+cleaned_df$Chr <- sub("_", "", cleaned_df$Chr)
+
+# removing col names 
+names(cleaned_df) <- NULL
+
+write.csv(cleaned_df, "../data/cleaned_RIL1to8_mPing.csv", row.names=FALSE, quote=FALSE)
+write.table(cleaned_df, "../data/cleaned_RIL1to8_mPing.tsv", sep="\t", row.names=FALSE, quote=FALSE)
+
+head(cleaned_df)
