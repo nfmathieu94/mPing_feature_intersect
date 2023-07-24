@@ -24,4 +24,20 @@ Fixed problem on 7.15.2023
 - Fixed the issue by reading in the sorted_master_gff.tsv, removing row names and quotes
     - the code for this can be found in removing_master_blanks.R
 
+An issue is occuring when trying to intersect the cleaned_RIL1to8_mPing.tsv file with the sorted_master_gff.tsv
+An issue is occuring when trying to intersect the cleaned_RIL1to8_mPing.tsv file with the cleaned_gff.tsv
+The issue does not occur when intersecting the cleaned_RIL1to8_mPing.tsv and the cleaned_intergenic.tsv file
+The issue does not occur when intersecting the cleaned_RIL1to8_mPing.tsv and the with_introns.gff3
+An issue is occuring when trying to intersect the cleaned_RIL1to8_mPing.tsv file with the sorted_master_gff.tsv
 
+The issues above suggest that that the core issue is occuring when creating the clead_gff.tsv from the with_introns.gff3
+This core issue is thus causing other issues when trying to intersect the downstream files (master_gff and sorted_master)
+with the cleaned_RIL1to8_mPing.tsv
+
+
+Feature Barplot (intersection_barplot.R):
+
+The code below was used to get the mPing counts for each feature
+cut -f3,3 withintrons_mPing_intersect.tsv | sort | uniq -c > gff_intersect_counts.tsvi
+
+the intergenic mPing intersection file was also used as input for the bar plot. The number of rows was used for the mPing count
